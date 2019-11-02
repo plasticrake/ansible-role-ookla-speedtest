@@ -4,7 +4,6 @@
     name:
       - apt-transport-https
       - dirmngr
-      - gnupg1
     state: present
 
 - name: Add Ookla apt repository key.
