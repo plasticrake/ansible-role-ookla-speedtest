@@ -1,0 +1,30 @@
+---
+language: python
+services: docker
+
+env:
+  global:
+    - ROLE_NAME: ookla_speedtest
+  matrix:
+    - MOLECULE_DISTRO: centos:8
+    - MOLECULE_DISTRO: centos:7
+    - MOLECULE_DISTRO: centos:6
+    - MOLECULE_DISTRO: fedora:31
+    - MOLECULE_DISTRO: fedora:30
+    - MOLECULE_DISTRO: ubuntu:bionic
+    - MOLECULE_DISTRO: ubuntu:xenial
+    - MOLECULE_DISTRO: debian:buster
+    - MOLECULE_DISTRO: debian:strech
+    - MOLECULE_DISTRO: debian:jessie
+
+
+install:
+  # Install test dependencies.
+  - pip install molecule docker
+
+script:
+  # Run tests.
+  - molecule test
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/

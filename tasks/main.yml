@@ -1,0 +1,13 @@
+---
+- name: Remove conflicting package.
+  package:
+    name:
+      - speedtest-cli
+    state: absent
+  when: speedtest_remove_conflicts|bool
+
+- include_tasks: Debian.yml
+  when: ansible_os_family == 'Debian'
+
+- include_tasks: RedHat.yml
+  when: ansible_os_family == 'RedHat'

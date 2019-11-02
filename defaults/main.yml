@@ -1,0 +1,11 @@
+---
+speedtest_package_state: present
+speedtest_remove_conflicts: yes
+
+# Debian / Ubuntu
+speedtest_repo_install_key: 379CE192D401AB61
+speedtest_apt_repository: "deb https://ookla.bintray.com/debian {{ ansible_distribution_release }} main"
+
+# RedHat / CentOS / Fedora
+speedtest_yum_repo_url: https://bintray.com/ookla/rhel/rpm
+speedtest_yum_dest: /etc/yum.repos.d/bintray-ookla-rhel.repo

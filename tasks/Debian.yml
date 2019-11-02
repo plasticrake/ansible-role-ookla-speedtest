@@ -1,0 +1,28 @@
+---
+- name: Ensure dependencies are installed.
+  apt:
+    name:
+      - apt-transport-https
+      - dirmngr
+      - gnupg1
+    state: present
+
+- name: Add Ookla apt repository key.
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: "{{ speedtest_repo_install_key }}"
+    state: present
+  when: speedtest_repo_install_key | length
+
+- name: Add Ookla apt repository.
+  apt_repository:
+    repo: "{{ speedtest_apt_repository }}"
+    state: present
+    update_cache: true
+  when: speedtest_apt_repository | length
+
+- name: Install speedtest.
+  apt:
+    name:
+      - speedtest
+    state: "{{ speedtest_package_state }}"
