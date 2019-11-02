@@ -3,20 +3,17 @@ language: python
 services: docker
 
 env:
-  global:
-    - ROLE_NAME: ookla_speedtest
   matrix:
-    - MOLECULE_DISTRO: centos:8
-    - MOLECULE_DISTRO: centos:7
-    - MOLECULE_DISTRO: centos:6
-    - MOLECULE_DISTRO: fedora:31
-    - MOLECULE_DISTRO: fedora:30
-    - MOLECULE_DISTRO: ubuntu:bionic
-    - MOLECULE_DISTRO: ubuntu:xenial
-    - MOLECULE_DISTRO: debian:buster
-    - MOLECULE_DISTRO: debian:strech
-    - MOLECULE_DISTRO: debian:jessie
-
+    - MOLECULE_DISTRO: centos8
+    - MOLECULE_DISTRO: centos7
+    - MOLECULE_DISTRO: centos6
+    - MOLECULE_DISTRO: fedora31
+    - MOLECULE_DISTRO: fedora30
+    - MOLECULE_DISTRO: ubuntu1804
+    - MOLECULE_DISTRO: ubuntu1604
+    - MOLECULE_DISTRO: debian10
+    - MOLECULE_DISTRO: debian9
+    - MOLECULE_DISTRO: debian8
 
 install:
   # Install test dependencies.
