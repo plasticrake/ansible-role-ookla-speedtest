@@ -40,6 +40,7 @@ jobs:
           - debian9
           - fedora33
           - fedora32
+          - ubuntu2004
           - ubuntu1804
     steps:
       - uses: actions/checkout@v2
