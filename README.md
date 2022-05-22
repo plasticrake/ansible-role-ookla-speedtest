@@ -36,7 +36,7 @@ None.
 
     - hosts: servers
       roles:
-        - plasticrake.ookla-speedtest
+        - ansible-role-ookla-speedtest
       become: yes
 
 ## License
